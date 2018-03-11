@@ -24,3 +24,4 @@ typedef struct sprite_s sprite_t;
 
 void sprites_animate(llist_t sprites, sfTime frame_time);
 void sprites_draw(llist_t sprites, sfRenderWindow *window);
+void sprites_clear(llist_t sprites);

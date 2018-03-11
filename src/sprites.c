@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "sprites.h"
 
 void sprites_draw(llist_t sprites, sfRenderWindow *window)
@@ -40,4 +41,20 @@ void sprites_animate(llist_t sprites, sfTime frame_time)
 			sprite_animate(sprite, frame_time);
 		}
 	}
+}
+
+void sprites_clear(llist_t sprites)
+{
+	sprite_t *sprite;
+	llnode_t node;
+
+	while (true) {
+		node = ll_pop(sprites, 0);
+		if (!node)
+			break;
+		sprite = node->data;
+		sfSprite_destroy(sprite->sprite);
+		free(sprite);
+		free(node);
+	};
 }
