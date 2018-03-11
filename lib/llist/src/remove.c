@@ -38,7 +38,7 @@ llnode_t ll_pop(llist_t list, unsigned int nb)
 	}
 	if (nb != 0)
 		return (NULL);
-	prev->next = node->next;
+	prev->next = prev->next->next;
 	list->nb -= 1;
 	return (node);
 }
