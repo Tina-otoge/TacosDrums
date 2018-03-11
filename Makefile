@@ -2,6 +2,8 @@ SRCFILES  = main.c \
 	    events.c \
 	    events/close.c \
 	    game.c \
+	    scenes.c \
+	    scenes/titlescreen.c \
 	    sprites.c \
 	    tacos.c \
 	    window.c

@@ -1,21 +1,25 @@
 #pragma once
 
-#include "llist.h"
 #include <SFML/Graphics.h>
+#include "llist.h"
 
-enum state {
-	STATE_TITLESCREEN,
-	STATE_TITLESELECT,
-	STATE_MUSICSELECT,
-	STATE_MUSICPLAY,
-	STATE_MUSICRESULT,
-	STATE_SETTINGS
-};
+#define FD_DEBUG 0
+
+typedef enum {
+	SCENE_TITLESCREEN,
+	SCENE_MAINMENU,
+	SCENE_MUSICSELECT,
+	SCENE_MUSICPLAY,
+	SCENE_MUSICRESULT,
+	SCENE_SETTINGS,
+	SCENE_COUNT,
+	NO_SCENE
+} scene_t;
 
 struct tacos_s {
 	sfRenderWindow *window;
 	llist_t sprites;
-	enum state state;
+	scene_t scene;
 	sfClock *clock;
 };
 

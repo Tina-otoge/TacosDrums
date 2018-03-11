@@ -4,6 +4,7 @@
 #include "tacos.h"
 #include "window.h"
 #include "game.h"
+#include "scenes.h"
 
 tacos_t *tacos_create(void)
 {
@@ -19,12 +20,14 @@ tacos_t *tacos_create(void)
 		tacos_destroy(result);
 		return (NULL);
 	}
+	result->scene = NO_SCENE;
 	return (result);
 }
 
 void tacos_run(tacos_t *game)
 {
-	printf("running tacos :D\n@%p\n", (void *)game);
+	dprintf(FD_DEBUG, "running tacos :D\n@%p\n", (void *)game);
+	scene_update(game, SCENE_TITLESCREEN);
 	game_loop(game);
 }
 
