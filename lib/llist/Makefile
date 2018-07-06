@@ -7,6 +7,7 @@
 
 SRCFILES = add.c \
 	   remove.c \
+	   find.c \
 	   free.c \
 	   remove.c \
 	   new.c

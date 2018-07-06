@@ -50,8 +50,7 @@ llnode_t ll_push(llist_t list, void *new_data)
 		return (NULL);
 	if (!list->head) {
 		list->head = to_insert;
-	}
-	else {
+	} else {
 		new_second = list->head;
 		to_insert->next = new_second;
 		list->head = to_insert;

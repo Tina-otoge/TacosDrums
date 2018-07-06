@@ -8,14 +8,31 @@
 #include <stddef.h>
 #include "llist.h"
 
-llnode_t ll_find(llist_t list, void *data)
+llnode_t ll_find_predicate(llist_t list, int (*predicate)(llnode_t node))
 {
-	llnode_t result = NULL;
+	for (llnode_t node = list->head; node; node = node->next) {
+		if (predicate(node))
+			return (node);
+	}
+	return (NULL);
+}
 
-	result = list->head;
-	while (result && result != data)
-		result = result->next;
-	return (result);
+llnode_t ll_find_data(llist_t list, void *data_to_find)
+{
+	for (llnode_t node = list->head; node; node = node->next) {
+		if (node->data == data_to_find)
+			return (node);
+	}
+	return (NULL);
+}
+
+llnode_t ll_find_node(llist_t list, llnode_t node_to_find)
+{
+	for (llnode_t node = list->head; node; node = node->next) {
+		if (node == node_to_find)
+			return (node);
+	}
+	return (NULL);
 }
 
 llnode_t ll_goto(llist_t list, unsigned int nb)
